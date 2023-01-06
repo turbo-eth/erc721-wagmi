@@ -35,7 +35,7 @@ export function useERC721Metadata({
         // You can await here
         if (txRead?.data?.startsWith('ipfs://')) {
           const data = await fetch(
-            `https://ipfs.io/ipfs/${txRead?.data?.split('ipfs://')[1]}`
+            `https://cloudflare-ipfs.com/ipfs/${txRead?.data?.split('ipfs://')[1]}`
           );
           console.log(data, 'data');
           setTokenData(await data.json());
