@@ -1,5 +1,6 @@
 // @ts-nocheck
 import * as React from 'react';
+
 import { useERC721Metadata } from '../hooks/useERC721Metadata';
 
 interface ERC721TokenURIProps {
@@ -21,14 +22,5 @@ export const ERC721TokenURI = ({ address, tokenId }: ERC721TokenURIProps) => {
     </code>
   );
 };
-
-function Attribute({ name, value }) {
-  return (
-    <div className="flex justify-between">
-      <span className="">{name}</span>
-      <span className="">{value}</span>
-    </div>
-  );
-}
 
 export default ERC721TokenURI;

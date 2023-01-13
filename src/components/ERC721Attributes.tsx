@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useERC721Metadata } from '../hooks/useERC721Metadata';
 
 interface ERC721AttributesProps {
@@ -10,6 +11,7 @@ interface ERC721AttributesProps {
 }
 
 export const ERC721Attributes = ({
+  className,
   classNameLabel,
   classNameValue,
   address,
@@ -20,9 +22,11 @@ export const ERC721Attributes = ({
     tokenId,
   });
 
-  if (!tokenData) return null;
-  return tokenData?.attributes?.map((attribute) => (
+  if (!tokenData || Array.isArray(tokenData.attributes) === false) return null;
+  return tokenData?.attributes?.map((attribute, idx) => (
     <Attribute
+      key={idx}
+      className={className}
       classNameLabel={classNameLabel}
       classNameValue={classNameValue}
       name={attribute?.trait_type}
@@ -31,9 +35,15 @@ export const ERC721Attributes = ({
   ));
 };
 
-function Attribute({ name, value, classNameLabel, classNameValue }: any) {
+function Attribute({
+  name,
+  value,
+  className,
+  classNameLabel,
+  classNameValue,
+}: any) {
   return (
-    <div className="flex justify-between">
+    <div className={className}>
       <span className={classNameLabel}>{name}</span>
       <span className={classNameValue}>{value}</span>
     </div>

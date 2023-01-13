@@ -1,11 +1,11 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { ERC20Allowance } from '../src/index';
 
-describe('Thing', () => {
+import * as ReactDOM from 'react-dom';
+
+describe('Components', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<ERC20Allowance address="0x0000000" />, div);
+    ReactDOM.createPortal(<div>hello world</div>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });

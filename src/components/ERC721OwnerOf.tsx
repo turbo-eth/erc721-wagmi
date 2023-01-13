@@ -1,40 +1,50 @@
 import * as React from 'react';
-import { useContractRead, erc721ABI } from 'wagmi';
 
-interface ERC721OwnerOfProps {
+import classNames from 'classnames';
+
+import useERC721Read from '../hooks/useERC721Read';
+
+interface ERC721OwnerOfProps extends ContractReadOptions {
   className?: string;
-  address: string;
-  tokenId: string | number;
-  isLink: boolean;
+  tokenId: string;
 }
 
 export const ERC721OwnerOf = ({
+  className,
+  tokenId,
+  chainId,
   address,
-  tokenId = 0,
-  isLink = false,
+  args,
+  cacheOnBlock,
+  cacheTime,
+  enabled,
+  scopeKey,
+  staleTime,
+  suspense,
+  overrides,
+  onSuccess,
+  onError,
+  onSettled,
 }: ERC721OwnerOfProps) => {
-  const txRead = useContractRead({
-    address: address,
-    abi: erc721ABI,
+  const classes = classNames(className, 'ERC721OwnerOf');
+  const { data, isError, isLoading } = useERC721Read({
+    chainId,
+    address,
     functionName: 'ownerOf',
-    // @ts-ignore
-    args: [tokenId],
+    args: args || [tokenId],
+    cacheOnBlock,
+    cacheTime,
+    enabled,
+    scopeKey,
+    staleTime,
+    suspense,
+    overrides,
+    onSuccess,
+    onError,
+    onSettled,
   });
-
-  if (!txRead.data || !txRead.isSuccess) return null;
-  if (isLink) {
-    return (
-      <a
-        href={`https://goerli-optimism.etherscan.io/address/${txRead.data.toString()}`}
-        target="_blank"
-        className="link"
-        rel="noreferrer"
-      >
-        {txRead.data.toString()}
-      </a>
-    );
-  }
-  return <span className="">{txRead.data.toString()}</span>;
+  if (isError || isLoading) return null;
+  return <span className={classes}>{String(data)}</span>;
 };
 
 export default ERC721OwnerOf;

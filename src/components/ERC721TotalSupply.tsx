@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useContractRead, erc721ABI } from 'wagmi';
+
 import { BigNumber } from 'ethers';
+import { erc721ABI, useContractRead } from 'wagmi';
 
 interface ERC721TotalSupplyProps {
   className?: string;
