@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc721-wagmi",
-  "version": "0.0.0-beta.1",
+  "version": "0.0.0-beta.2",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -52,23 +52,27 @@
   },
   "size-limit": [
     {
-      "path": "dist/erc721-wagmi.cjs.production.min.js",
+      "path": "dist/erc721-wagmi.modern.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/erc721-wagmi.esm.js",
+      "path": "dist/erc721-wagmi.umd.js",
       "limit": "10 KB"
     }
   ],
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/create-react-app": "^1.0.3",
     "@tsconfig/recommended": "^1.0.1",
+    "@types/mocha": "^10.0.1",
     "@types/prop-types": "^15.7.5",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "dts-cli": "^1.6.3",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
     "react": "^18.2.0",

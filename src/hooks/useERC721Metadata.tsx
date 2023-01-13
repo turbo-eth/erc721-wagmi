@@ -1,7 +1,8 @@
-// @ts-nocheck
-import { erc721ABI } from 'wagmi';
-import { useState, useEffect } from 'react';
-import { useContractRead } from 'wagmi';
+import { useEffect, useState } from 'react';
+
+import { BigNumberish } from 'ethers';
+
+import useERC721Read from './useERC721Read';
 
 interface ERC721Metadata {
   name: string;
@@ -13,31 +14,32 @@ interface ERC721Metadata {
   }>;
 }
 
-// @ts-ignore
 export function useERC721Metadata({
   address,
   tokenId,
 }: {
   address: string;
-  tokenId: string;
+  tokenId: BigNumberish;
 }): ERC721Metadata | undefined {
   const [tokenData, setTokenData] = useState<ERC721Metadata | undefined>();
-  const txRead = useContractRead({
+  const txRead = useERC721Read({
     address: address,
-    abi: erc721ABI,
-    functionName: 'tokenURI',
     args: [tokenId],
   });
 
   useEffect(() => {
-    if (txRead.data) {
+    if (txRead.data && typeof txRead.data === 'string') {
       async function fetchData() {
-        // You can await here
+        // TODO: Add support for other IPFS gateways
+        // In general just make this wayyy more robust
+        // @ts-ignore
         if (txRead?.data?.startsWith('ipfs://')) {
           const data = await fetch(
-            `https://ipfs.io/ipfs/${txRead?.data?.split('ipfs://')[1]}`
+            `https://cloudflare-ipfs.com/ipfs/${
+              // @ts-ignore
+              txRead?.data?.split('ipfs://')[1]
+            }`
           );
-          console.log(data, 'data');
           setTokenData(await data.json());
         } else {
           const data = await fetch(txRead?.data as unknown as URL);

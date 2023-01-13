@@ -1,27 +1,37 @@
-import { useContractRead, erc721ABI } from 'wagmi';
+import { erc721ABI, useContractRead } from 'wagmi';
 
-export function useERC721Read(
-  address: string,
-  method:
-    | 'symbol'
-    | 'name'
-    | 'balanceOf'
-    | 'getApproved'
-    | 'isApprovedForAll'
-    | 'ownerOf'
-    | 'tokenByIndex'
-    | 'tokenURI'
-    | 'totalSupply'
-    | undefined,
-  args: any[]
-): any {
-  useContractRead({
+export function useERC721Read({
+  functionName,
+  abi,
+  args,
+  address,
+  chainId,
+  cacheTime,
+  enabled,
+  scopeKey,
+  staleTime,
+  suspense,
+  overrides,
+  onSuccess,
+  onError,
+  onSettled,
+}: ContractReadOptions): ReturnType<typeof useContractRead> {
+  return useContractRead({
+    chainId: chainId,
     address: address,
-    abi: erc721ABI,
-    // @ts-ignore
-    functionName: method,
+    abi: abi || erc721ABI,
+    functionName: functionName,
     // @ts-ignore
     args: args,
+    cacheTime: cacheTime,
+    enabled: enabled,
+    scopeKey: scopeKey,
+    staleTime: staleTime,
+    suspense: suspense,
+    overrides: overrides,
+    onSuccess: onSuccess,
+    onError: onError,
+    onSettled: onSettled,
   });
 }
 

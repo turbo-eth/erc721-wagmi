@@ -1,5 +1,7 @@
-import classNames from 'classnames';
 import * as React from 'react';
+
+import classNames from 'classnames';
+
 import { useERC721Metadata } from '../hooks/useERC721Metadata';
 
 interface ERC721ImageProps {
@@ -21,7 +23,11 @@ export const ERC721Image = ({
   const [imgSrc, setImgSrc] = React.useState<string>();
   React.useEffect(() => {
     if (tokenData?.image.startsWith('ipfs://')) {
-      setImgSrc(`https://ipfs.io/ipfs/${tokenData?.image.split('ipfs://')[1]}`);
+      setImgSrc(
+        `https://cloudflare-ipfs.com/ipfs/${
+          tokenData?.image.split('ipfs://')[1]
+        }`
+      );
     } else {
       setImgSrc(tokenData?.image);
     }

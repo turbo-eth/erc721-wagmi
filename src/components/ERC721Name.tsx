@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useERC721Metadata } from '../hooks/useERC721Metadata';
 
 interface ERC721NameProps {
