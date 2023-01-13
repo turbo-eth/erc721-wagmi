@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "microbundle --tsconfig tsconfig.build.json",
+    "build": "microbundle --jsx React.createElement --tsconfig tsconfig.build.json",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
     "size": "size-limit",

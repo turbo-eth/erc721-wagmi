@@ -6,12 +6,14 @@ import { useERC721Metadata } from '../hooks/useERC721Metadata';
 
 interface ERC721ImageProps {
   className?: string;
+  alt?: string;
   address: string;
   tokenId: string;
 }
 
 export const ERC721Image = ({
   className,
+  alt,
   address,
   tokenId,
 }: ERC721ImageProps) => {
@@ -34,7 +36,7 @@ export const ERC721Image = ({
   }, [tokenData?.image]);
   if (!tokenData) return null;
 
-  return <img className={classes} src={imgSrc} />;
+  return <img className={classes} alt={alt} src={imgSrc} />;
 };
 
 export default ERC721Image;

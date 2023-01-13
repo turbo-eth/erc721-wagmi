@@ -5,12 +5,14 @@ import { erc721ABI } from 'wagmi';
 
 interface ERC721ImageBase64Props {
   className?: string;
+  alt?: string;
   address: string;
   tokenId: string;
 }
 
 export const ERC721ImageBase64 = ({
   className,
+  alt,
   address,
   tokenId,
 }: ERC721ImageBase64Props) => {
@@ -37,7 +39,7 @@ export const ERC721ImageBase64 = ({
   }, [txRead.data]);
 
   if (!txRead.data || !txRead.isSuccess) return null;
-  return <img className={className} src={imgSrc} />;
+  return <img className={className} alt={alt} src={imgSrc} />;
 };
 
 export default ERC721ImageBase64;
