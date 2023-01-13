@@ -1,14 +1,17 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "extends": "@tsconfig/create-react-app/tsconfig.json",
-  "include": ["**/*.ts", "**/*.tsx", "src/types/.d.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["**/*.ts", "./**/*.tsx", "./src/*.d.ts"],
+  "exclude": ["node_modules", "dist", "commitlint.config.js"],
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": "./src",
+    "noEmit": true,
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment",
     "outDir": "dist",
+    "skipLibCheck": true,
     "paths": {
       "*": ["./types/*.d.ts"]
     },

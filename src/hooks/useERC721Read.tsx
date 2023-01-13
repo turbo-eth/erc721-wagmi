@@ -1,4 +1,4 @@
-import { erc721ABI, useContractRead } from 'wagmi';
+import { erc721ABI, useContractRead, useNetwork } from 'wagmi';
 
 export function useERC721Read({
   functionName,
@@ -7,7 +7,7 @@ export function useERC721Read({
   address,
   chainId,
   cacheTime,
-  enabled,
+  enabled = true,
   scopeKey,
   staleTime,
   suspense,
@@ -16,8 +16,9 @@ export function useERC721Read({
   onError,
   onSettled,
 }: ContractReadOptions): ReturnType<typeof useContractRead> {
+  const { chain } = useNetwork();
   return useContractRead({
-    chainId: chainId,
+    chainId: chainId || chain?.id || 1,
     address: address,
     abi: abi || erc721ABI,
     functionName: functionName,

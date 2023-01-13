@@ -25,21 +25,24 @@ export function useERC721Metadata({
   const txRead = useERC721Read({
     address: address,
     args: [tokenId],
+    functionName: 'tokenURI',
   });
 
   useEffect(() => {
-    if (txRead.data && typeof txRead.data === 'string') {
+    if (txRead.data) {
       async function fetchData() {
         // TODO: Add support for other IPFS gateways
         // In general just make this wayyy more robust
         // @ts-ignore
         if (txRead?.data?.startsWith('ipfs://')) {
-          const data = await fetch(
-            `https://cloudflare-ipfs.com/ipfs/${
-              // @ts-ignore
-              txRead?.data?.split('ipfs://')[1]
-            }`
-          );
+          const url = `https://cloudflare-ipfs.com/ipfs/${
+            // @ts-ignore
+            txRead?.data?.split('ipfs://')[1]
+          }`;
+          console.log(url);
+          const data = await fetch(url);
+
+          console.log(data, 'data');
           setTokenData(await data.json());
         } else {
           const data = await fetch(txRead?.data as unknown as URL);

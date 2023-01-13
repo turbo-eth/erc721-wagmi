@@ -4,22 +4,22 @@
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
-  "main": "dist/erc721-wagmi.js",
-  "exports": {
-    "import": "./dist/erc721-wagmi.modern.js",
-    "require": "./dist/index.js"
-  },
-  "umd:main": "dist/erc721-wagmi.umd.js",
-  "module": "dist/erc721-wagmi.modern.js",
-  "unpkg": "./dist/erc721-wagmi.umd.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "default": "./dist/index.module.js"
+  },
   "files": [
-    "dist",
-    "src"
+    "/dist",
+    "/src"
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "microbundle --jsx React.createElement",
+    "build": "microbundle --tsconfig tsconfig.build.json",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
     "size": "size-limit",
