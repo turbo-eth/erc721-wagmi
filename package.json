@@ -43,9 +43,12 @@
   },
   "peerDependencies": {
     "@rainbow-me/rainbowkit": "0.8.1",
-    "ethers": "^5.7.2",
-    "react": ">=16",
-    "wagmi": "^0.9.2"
+    "@tanstack/query-core": "^4.3.8",
+    "@tanstack/react-query": "^4.3.9",
+    "ethers": "5.7.2",
+    "react": ">=17",
+    "react-dom": ">=17",
+    "wagmi": "0.9.x"
   },
   "engines": {
     "node": ">=12"
@@ -61,6 +64,7 @@
     }
   ],
   "devDependencies": {
+    "@babel/core": "7.18.5",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@size-limit/preset-small-lib": "^8.1.0",
@@ -75,16 +79,17 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": ">=17",
+    "react-dom": ">=17",
     "size-limit": "^8.1.0",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "classnames": "2.3.1",
-    "ethers": "^5.7.2",
+    "ethers": "5.7.2",
     "prop-types": "15.8.1",
-    "wagmi": "^0.9.2"
+    "react-native": "^0.71.0",
+    "wagmi": "0.9.x"
   }
 }
