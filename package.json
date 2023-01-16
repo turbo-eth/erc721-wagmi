@@ -23,7 +23,7 @@
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
     "size": "size-limit",
-    "start": "dts watch",
+    "start": "microbundle --jsx React.createElement watch",
     "test": "dts test --passWithNoTests"
   },
   "husky": {

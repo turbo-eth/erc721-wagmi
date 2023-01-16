@@ -39,10 +39,8 @@ export function useERC721Metadata({
             // @ts-ignore
             txRead?.data?.split('ipfs://')[1]
           }`;
-          console.log(url);
           const data = await fetch(url);
 
-          console.log(data, 'data');
           setTokenData(await data.json());
         } else {
           const data = await fetch(txRead?.data as unknown as URL);
