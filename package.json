@@ -20,10 +20,10 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "microbundle --jsx React.createElement --tsconfig tsconfig.build.json",
+    "start": "microbundle --jsx React.createElement watch --tsconfig tsconfig.build.json",
     "lint": "dts lint",
     "prepare": "husky install ; microbundle",
     "size": "size-limit",
-    "start": "microbundle --jsx React.createElement watch",
     "test": "dts test --passWithNoTests"
   },
   "husky": {
