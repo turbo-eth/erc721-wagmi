@@ -1,13 +1,11 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import { useErc721TotalSupply } from 'core';
 
-import useERC721Read from '../hooks/useERC721Read';
-
-interface ERC721OwnerOfProps {
+interface ERC721TotalSupplyProps {
   className?: string;
   tokenId: string;
-  address: string;
+  address: `0x${string}`;
   abi?: any;
   functionName?: string;
   chainId?: number;
@@ -30,12 +28,10 @@ interface ERC721OwnerOfProps {
   onSettled?: () => void;
 }
 
-export const ERC721OwnerOf = ({
+export const ERC721TotalSupply = ({
   className,
-  tokenId,
   chainId,
   address,
-  args,
   cacheOnBlock,
   cacheTime,
   enabled,
@@ -46,13 +42,10 @@ export const ERC721OwnerOf = ({
   onSuccess,
   onError,
   onSettled,
-}: ERC721OwnerOfProps) => {
-  const classes = classNames(className, 'ERC721OwnerOf');
-  const { data, isError, isLoading } = useERC721Read({
+}: ERC721TotalSupplyProps) => {
+  const txRead = useErc721TotalSupply({
     chainId,
     address,
-    functionName: 'ownerOf',
-    args: args || [tokenId],
     cacheOnBlock,
     cacheTime,
     enabled,
@@ -64,8 +57,7 @@ export const ERC721OwnerOf = ({
     onError,
     onSettled,
   });
-  if (isError || isLoading) return null;
-  return <span className={classes}>{String(data)}</span>;
-};
 
-export default ERC721OwnerOf;
+  if (!txRead.data || !txRead.isSuccess) return null;
+  return <span className={className}>{txRead.data.toString()}</span>;
+};

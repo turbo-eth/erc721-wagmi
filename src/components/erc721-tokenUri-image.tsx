@@ -1,22 +1,22 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
+import useERC721Metadata from 'useERC721Metadata';
+import { BigNumberish } from 'ethers';
 
-import { useERC721Metadata } from '../hooks/useERC721Metadata';
-
-interface ERC721ImageProps {
+interface ERC721TokenImageProps {
   className?: string;
   alt?: string;
-  address: string;
-  tokenId: string;
+  address: `0x${string}`;
+  tokenId: BigNumberish;
 }
 
-export const ERC721Image = ({
+export const ERC721TokenImage = ({
   className,
   alt,
   address,
   tokenId,
-}: ERC721ImageProps) => {
+}: ERC721TokenImageProps) => {
   const classes = classNames(className);
   const tokenData = useERC721Metadata({
     address,
@@ -35,8 +35,7 @@ export const ERC721Image = ({
     }
   }, [tokenData?.image]);
   if (!tokenData) return null;
-
   return <img className={classes} alt={alt} src={imgSrc} />;
 };
 
-export default ERC721Image;
+export default ERC721TokenImage;

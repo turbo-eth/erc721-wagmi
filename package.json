@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc721-wagmi",
-  "version": "0.0.0-beta.4",
+  "version": "0.0.0-beta.5",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -19,12 +19,14 @@
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "microbundle --jsx React.createElement --tsconfig tsconfig.build.json",
-    "start": "microbundle --jsx React.createElement watch --tsconfig tsconfig.build.json",
+    "build": "microbundle --jsx React.createElement",
+    "start": "microbundle --jsx React.createElement watch",
     "lint": "dts lint",
-    "prepare": "husky install ; microbundle",
+    "prepare": "husky install ; microbundle --jsx React.createElement",
     "size": "size-limit",
-    "test": "dts test --passWithNoTests"
+    "test": "dts test --passWithNoTests",
+    "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true --entryDocument index.md",
+    "docs:html": "yarn typedoc --plugin none --out docs"
   },
   "husky": {
     "hooks": {
@@ -74,11 +76,14 @@
     "@types/prop-types": "^15.7.5",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "@wagmi/cli": "^0.1.11",
     "dts-cli": "^1.6.3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.8",
     "react": ">=17",
     "react-dom": ">=17",
     "size-limit": "^8.1.0",
@@ -87,9 +92,10 @@
   },
   "dependencies": {
     "classnames": "2.3.1",
+    "clsx": "^1.2.1",
     "ethers": "5.7.2",
     "prop-types": "15.8.1",
-    "react-native": "^0.71.0",
-    "wagmi": "0.9.x"
+    "viem": "^0.1.7",
+    "wagmi": "0.11.7"
   }
 }

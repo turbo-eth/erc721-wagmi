@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { BigNumberish } from 'ethers';
-
-import useERC721Read from './useERC721Read';
+import { BigNumber, BigNumberish } from 'ethers';
+import { useErc721TokenUri } from 'core';
 
 interface ERC721Metadata {
   name: string;
@@ -18,21 +17,19 @@ export function useERC721Metadata({
   address,
   tokenId,
 }: {
-  address: string;
+  address: `0x${string}`;
   tokenId: BigNumberish;
 }): ERC721Metadata | undefined {
   const [tokenData, setTokenData] = useState<ERC721Metadata | undefined>();
-  const txRead = useERC721Read({
+  const txRead = useErc721TokenUri({
     address: address,
-    args: [tokenId],
-    functionName: 'tokenURI',
+    args: [tokenId as BigNumber],
   });
 
   useEffect(() => {
     if (txRead.data) {
       async function fetchData() {
         // TODO: Add support for other IPFS gateways
-        // In general just make this wayyy more robust
         // @ts-ignore
         if (txRead?.data?.startsWith('ipfs://')) {
           const url = `https://cloudflare-ipfs.com/ipfs/${
@@ -40,7 +37,6 @@ export function useERC721Metadata({
             txRead?.data?.split('ipfs://')[1]
           }`;
           const data = await fetch(url);
-
           setTokenData(await data.json());
         } else {
           const data = await fetch(txRead?.data as unknown as URL);

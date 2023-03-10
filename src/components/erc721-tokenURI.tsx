@@ -1,11 +1,9 @@
-// @ts-nocheck
 import * as React from 'react';
-
-import { useERC721Metadata } from '../hooks/useERC721Metadata';
+import useERC721Metadata from 'useERC721Metadata';
 
 interface ERC721TokenURIProps {
   className?: string;
-  address: string;
+  address: `0x${string}`;
   tokenId: string;
 }
 
