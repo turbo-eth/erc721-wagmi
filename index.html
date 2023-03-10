@@ -1,0 +1,91 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@turbo-eth/erc721-wagmi</title><meta name="description" content="Documentation for @turbo-eth/erc721-wagmi"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@turbo-eth/erc721-wagmi</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@turbo-eth/erc721-wagmi </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#erc721-wagmi" id="erc721-wagmi" style="color: inherit; text-decoration: none;">
+  <h1>ERC721 WAGMI</h1>
+</a>
+<p><img src="https://github.com/turbo-eth/erc721-wagmi/actions/workflows/main.yml/badge.svg" alt="CI">
+<img src="https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555" alt="TS">
+<a href="http://perso.crans.org/besson/LICENSE.html"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="GPLv3 license"></a>
+<a href="https://npmjs.org/package/@turbo-eth/erc721-wagmi"><img src="https://img.shields.io/npm/v/@turbo-eth/erc721-wagmi.svg" alt="Version"></a>
+<a href="https://npmjs.org/package/@turbo-eth/erc721-wagmi"><img src="https://img.shields.io/npm/dw/@turbo-eth/erc721-wagmi.svg" alt="Downloads/week"></a></p>
+
+<a href="#💾-nbspinstallation" id="💾-nbspinstallation" style="color: inherit; text-decoration: none;">
+  <h3>💾 &nbsp;Installation</h3>
+</a>
+<pre><code class="language-sh"><span class="hl-0">npm install @turbo-eth/erc721-wagmi</span>
+</code></pre>
+<pre><code class="language-sh"><span class="hl-0">yarn add @turbo-eth/erc721-wagmi</span>
+</code></pre>
+<pre><code class="language-sh"><span class="hl-0">pnpm add @turbo-eth/erc721-wagmi</span>
+</code></pre>
+<pre><code class="language-sh"><span class="hl-0">git clone https://github.com/turbo-eth/erc721-wagmi</span>
+</code></pre>
+
+<a href="#💻-developer-experience" id="💻-developer-experience" style="color: inherit; text-decoration: none;">
+  <h3>💻 Developer Experience</h3>
+</a>
+<p>The module uses a combination of <a href="https://github.com/weiran-zsd/dts-cli">DTS</a> and <a href="https://github.com/developit/microbundle">Microbundle</a> to manage the development workflow.</p>
+<ul>
+<li><a href="https://typicode.github.io/husky/#/">Husky</a></li>
+<li><a href="https://jestjs.io/">Jest</a></li>
+<li><a href="https://github.com/conventional-changelog/commitlint">Commitlint</a></li>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+<li><a href="https://eslint.org/">eslint</a> + <a href="https://prettier.io/">prettier</a></li>
+</ul>
+
+<a href="#🐕-what-is-husky" id="🐕-what-is-husky" style="color: inherit; text-decoration: none;">
+  <h3>🐕 What is husky</h3>
+</a>
+<p>Husky improves your git commits.</p>
+<p>You can use it to lint your commit messages, run tests, lint code, etc... when you commit or push. Husky supports all Git hooks.</p>
+
+<a href="#🪝-hooks" id="🪝-hooks" style="color: inherit; text-decoration: none;">
+  <h4>🪝 Hooks</h4>
+</a>
+<ul>
+<li>pre-commit: lint code by applying eslint</li>
+<li>commit-msg: force commintlint rules</li>
+</ul>
+
+<a href="#📋-what-is-commitlint" id="📋-what-is-commitlint" style="color: inherit; text-decoration: none;">
+  <h3>📋 What is commitlint</h3>
+</a>
+<p>commitlint checks if your commit messages meet the <a href="https://conventionalcommits.org">conventional commit format</a>.</p>
+<p>In general the pattern mostly looks like this:</p>
+<pre><code class="language-sh"><span class="hl-0">type(scope?): subject  </span><span class="hl-1">#scope is optional; multiple scopes are supported (current delimiter options: &quot;/&quot;, &quot;\&quot; and &quot;,&quot;)</span>
+</code></pre>
+<p>Real world examples can look like this:</p>
+<pre><code><span class="hl-2">chore</span><span class="hl-0">: </span><span class="hl-3">run</span><span class="hl-0"> </span><span class="hl-3">tests</span><span class="hl-0"> </span><span class="hl-3">on</span><span class="hl-0"> </span><span class="hl-3">travis</span><span class="hl-0"> </span><span class="hl-3">ci</span>
+</code></pre>
+<pre><code><span class="hl-4">fix</span><span class="hl-0">(</span><span class="hl-3">server</span><span class="hl-0">): </span><span class="hl-3">send</span><span class="hl-0"> </span><span class="hl-3">cors</span><span class="hl-0"> </span><span class="hl-3">headers</span>
+</code></pre>
+<pre><code><span class="hl-4">feat</span><span class="hl-0">(</span><span class="hl-3">blog</span><span class="hl-0">): </span><span class="hl-3">add</span><span class="hl-0"> </span><span class="hl-3">comment</span><span class="hl-0"> </span><span class="hl-3">section</span>
+</code></pre>
+<p>Common types according to <a href="https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum">commitlint-config-conventional (based on the Angular convention)</a> can be:</p>
+<ul>
+<li>build</li>
+<li>chore</li>
+<li>ci</li>
+<li>docs</li>
+<li>feat</li>
+<li>fix</li>
+<li>perf</li>
+<li>refactor</li>
+<li>revert</li>
+<li>style</li>
+<li>test</li>
+</ul>
+
+<a href="#sponsors-amp-maintainers" id="sponsors-amp-maintainers" style="color: inherit; text-decoration: none;">
+  <h3>Sponsors &amp; Maintainers</h3>
+</a>
+<p>The TurboETH Web3 Build System development is (currently) sponsored (and maintained) by District Labs.</p>
+<a alt="District Labs" href="https://districtlabs.com/" target="_blank">
+ <img src="https://red-effective-snake-988.mypinata.cloud/ipfs/QmXhSGcjL9oqQUpoSLzJ1vWto4B43epATpraqJhV5B4cdB">
+</a>
+
+<p>Interested in sponsoring the development and maintenance of the <code>TurboETH - Web3 Build System</code> templates, utilities and modules?</p>
+<p>Contact us today at <a alt="District Labs" href="https://districtlabs.com/" target="_blank">District Labs</a> or collect (coming soon) the TurboETH Mirror Collection.</p>
+<hr />
+
+<p>Copyright 2022 <a href="https://twitter.com/KamesGeraghty">Kames Geraghty</a></p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-variable"><a href="modules.html#erc721ABI" class="tsd-kind-icon">erc721ABI</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721OwnerOf" class="tsd-kind-icon">ERC721<wbr/>Owner<wbr/>Of</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721TokenDescription" class="tsd-kind-icon">ERC721<wbr/>Token<wbr/>Description</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721TokenImage" class="tsd-kind-icon">ERC721<wbr/>Token<wbr/>Image</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721TokenName" class="tsd-kind-icon">ERC721<wbr/>Token<wbr/>Name</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721TokenURI" class="tsd-kind-icon">ERC721<wbr/>TokenURI</a></li><li class="tsd-kind-function"><a href="modules.html#ERC721TotalSupply" class="tsd-kind-icon">ERC721<wbr/>Total<wbr/>Supply</a></li><li class="tsd-kind-function"><a href="modules.html#useERC721Metadata" class="tsd-kind-icon">useERC721<wbr/>Metadata</a></li><li class="tsd-kind-function"><a href="modules.html#useErc721" class="tsd-kind-icon">use<wbr/>Erc721</a></li><li class="tsd-kind-function"><a href="modules.html#useErc721ApprovalEvent" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Approval<wbr/>Event</a></li><li class="tsd-kind-function"><a href="modules.html#useErc721ApprovalForAllEvent" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Approval<wbr/>For<wbr/>All<wbr/>Event</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Approve" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Approve</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721BalanceOf" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Balance<wbr/>Of</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Event" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Event</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721GetApproved" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Get<wbr/>Approved</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721IsApprovedForAll" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Is<wbr/>Approved<wbr/>For<wbr/>All</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Name" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Name</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721OwnerOf" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Owner<wbr/>Of</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Read" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Read</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721SafeTransferFrom" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Safe<wbr/>Transfer<wbr/>From</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721SetApprovalForAll" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Set<wbr/>Approval<wbr/>For<wbr/>All</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Symbol" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Symbol</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721TokenByIndex" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Token<wbr/>By<wbr/>Index</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721TokenUri" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Token<wbr/>Uri</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721TotalSupply" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Total<wbr/>Supply</a></li><li class="tsd-kind-function"><a href="modules.html#useErc721TransferEvent" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Transfer<wbr/>Event</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721TransferFrom" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Transfer<wbr/>From</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useErc721Write" class="tsd-kind-icon">use<wbr/>Erc721<wbr/>Write</a></li><li class="tsd-kind-function"><a href="modules.html#usePrepareErc721Approve" class="tsd-kind-icon">use<wbr/>Prepare<wbr/>Erc721<wbr/>Approve</a></li><li class="tsd-kind-function"><a href="modules.html#usePrepareErc721SafeTransferFrom" class="tsd-kind-icon">use<wbr/>Prepare<wbr/>Erc721<wbr/>Safe<wbr/>Transfer<wbr/>From</a></li><li class="tsd-kind-function"><a href="modules.html#usePrepareErc721SetApprovalForAll" class="tsd-kind-icon">use<wbr/>Prepare<wbr/>Erc721<wbr/>Set<wbr/>Approval<wbr/>For<wbr/>All</a></li><li class="tsd-kind-function"><a href="modules.html#usePrepareErc721TransferFrom" class="tsd-kind-icon">use<wbr/>Prepare<wbr/>Erc721<wbr/>Transfer<wbr/>From</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#usePrepareErc721Write" class="tsd-kind-icon">use<wbr/>Prepare<wbr/>Erc721<wbr/>Write</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
