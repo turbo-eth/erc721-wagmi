@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import { useErc721OwnerOf } from 'core';
+import { useErc721OwnerOf } from '../core';
 import { BigNumber } from 'ethers';
 
 interface ERC721OwnerOfProps {

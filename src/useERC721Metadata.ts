@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { BigNumber, BigNumberish } from 'ethers';
-import { useErc721TokenUri } from 'core';
+import { useErc721TokenUri } from './core';
 
 interface ERC721Metadata {
   name: string;

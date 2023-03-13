@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useErc721TotalSupply } from 'core';
+import { useErc721TotalSupply } from '../core';
 
 interface ERC721TotalSupplyProps {
   className?: string;

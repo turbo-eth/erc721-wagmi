@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useERC721Metadata from 'useERC721Metadata';
+import useERC721Metadata from '../useERC721Metadata';
 
 interface ERC721TokenDescriptionProps {
   className?: string;

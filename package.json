@@ -1,6 +1,6 @@
 {
   "name": "@turbo-eth/erc721-wagmi",
-  "version": "0.0.0-beta.6",
+  "version": "0.0.0-beta.7",
   "license": "MIT",
   "author": "Kames Geraghty",
   "source": "src/index.tsx",
@@ -10,6 +10,7 @@
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/index.js",
     "default": "./dist/index.module.js"
   },

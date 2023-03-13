@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import useERC721Metadata from 'useERC721Metadata';
+import useERC721Metadata from '../useERC721Metadata';
 import { BigNumberish } from 'ethers';
 
 interface ERC721TokenImageProps {
