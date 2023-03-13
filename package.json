@@ -83,7 +83,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.2",
     "microbundle": "^0.15.1",
-    "typedoc": "^0.22.10",
+    "typedoc": "^0.23.26",
     "typedoc-plugin-markdown": "^3.11.8",
     "react": ">=17",
     "react-dom": ">=17",
